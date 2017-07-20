@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CountriesMVC.Data.Objects.Country>
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<button class="btn btn-default">@Html.ActionLink("Add Country", "AddCountry", "Country")</button>*@
+<h2>Countries: </h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var country in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => country.Name)<br />
+                </td>
+                <td>
+                    @Html.ActionLink("Country", "Details", new { name = country.Name })<br />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
